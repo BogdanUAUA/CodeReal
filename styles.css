@@ -1,0 +1,70 @@
+/* Estilo general de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f9; /* Fondo claro */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilo para el título principal (h1) */
+h1 {
+    color: #4caf50; /* Verde */
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el subtítulo (h2) */
+h2 {
+    color: #333; /* Gris oscuro */
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Estilo para los párrafos */
+p {
+    font-size: 18px;
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin-bottom: 20px;
+}
+
+/* Estilo para los enlaces */
+a {
+    color: #007BFF; /* Azul */
+    text-decoration: none; /* Quitar subrayado */
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Estilo para el botón */
+button {
+    background-color: #4caf50; /* Verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px;
+    cursor: pointer; /* Cambiar el cursor al pasar */
+    margin-top: 20px;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+button:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 14px;
+    }
+    button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+
