@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Primera Página</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Añadido para Brython -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script> <!-- NUEVO -->
 </head>
-<body>
+<body onload="brython()"> <!-- NUEVO -->
+
     <h1>¡Hola, Mundo!</h1>
     <p>Esta es mi primera página web.</p>
     
@@ -27,9 +31,30 @@
         <li>Visualización de gráficos</li>
         <li>Automatización de tareas</li>
     </ul>
-    
+
+    <!-- Sección de ejecución de código Python -->
+    <h2 style="color: green;">Ejecuta código Python</h2> <!-- NUEVO -->
+    <textarea id="codigoPython" placeholder="Escribe tu código aquí" style="color: green;"></textarea> <!-- NUEVO -->
+    <button onclick="ejecutarCodigo()" style="color: green;">Ejecutar</button> <!-- NUEVO -->
+    <pre id="salida" style="color: green;"></pre> <!-- NUEVO -->
+
+    <!-- Script para Brython -->
+    <script type="text/python" style="color: green;"> <!-- NUEVO -->
+        from browser import document
+
+        def ejecutarCodigo():
+            codigo = document["codigoPython"].value
+            try:
+                exec(codigo)
+            except Exception as e:
+                document["salida"].text = f"Error: {e}"
+
+        document["salida"].text = "Escribe tu código arriba y presiona Ejecutar."
+    </script> <!-- NUEVO -->
+
     <!-- Enlace al archivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
+
 
