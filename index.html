@@ -6,25 +6,21 @@
     <title>Mi Primera Página</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Añadido para Brython -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script> <!-- NUEVO -->
+    <!-- Brython -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
 </head>
-<body onload="brython()"> <!-- NUEVO -->
+<body onload="brython()">
 
     <h1>¡Hola, Mundo!</h1>
     <p>Esta es mi primera página web.</p>
     
-    <!-- Nueva sección -->
     <h2>Aprende con CodeReal</h2>
     <p>Este es un sitio donde podrás practicar programación con datos reales.</p>
     
-    <!-- Enlace -->
     <a href="https://www.python.org" target="_blank">Visita Python.org</a>
 
-    <!-- Botón interactivo -->
     <button id="miBoton">Haz clic aquí</button>
 
-    <!-- Nueva sección -->
     <h2>¿Qué puedes aprender aquí?</h2>
     <ul>
         <li>Manipulación de datos con Python</li>
@@ -33,28 +29,25 @@
     </ul>
 
     <!-- Sección de ejecución de código Python -->
-    <h2 style="color: green;">Ejecuta código Python</h2> <!-- NUEVO -->
-    <textarea id="codigoPython" placeholder="Escribe tu código aquí" style="color: green;"></textarea> <!-- NUEVO -->
-    <button onclick="ejecutarCodigo()" style="color: green;">Ejecutar</button> <!-- NUEVO -->
-    <pre id="salida" style="color: green;"></pre> <!-- NUEVO -->
+    <h2 style="color: green;">Ejecuta código Python</h2>
+    <textarea id="codigoPython" placeholder="Escribe tu código aquí" style="width: 100%; height: 100px;"></textarea>
+    <button onclick="ejecutarCodigo()" style="background-color: green; color: white; padding: 10px;">Ejecutar</button>
+    <pre id="salida" style="background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd;"></pre>
 
-    <!-- Script para Brython -->
-    <script type="text/python" style="color: green;"> <!-- NUEVO -->
-        from browser import document
+    <!-- Script Python -->
+    <script type="text/python">
+        from browser import document, console
 
         def ejecutarCodigo():
-            codigo = document["codigoPython"].value
+            # Limpia la salida
+            document["salida"].text = ""
+            codigo = document["codigoPython"].value  # Obtiene el código del usuario
             try:
-                exec(codigo)
+                # Ejecuta el código capturando cualquier salida con 'exec'
+                exec(codigo, {"print": lambda *args: document["salida"].text += " ".join(map(str, args)) + "\n"})
             except Exception as e:
+                # Muestra errores en la salida
                 document["salida"].text = f"Error: {e}"
-
-        document["salida"].text = "Escribe tu código arriba y presiona Ejecutar."
-    </script> <!-- NUEVO -->
-
-    <!-- Enlace al archivo JavaScript -->
-    <script src="script.js"></script>
+    </script>
 </body>
 </html>
-
-
